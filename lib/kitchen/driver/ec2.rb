@@ -432,6 +432,8 @@ module Kitchen
           ready = aws_instance.exists? &&
             aws_instance.state.name == "running" &&
             hostname != "0.0.0.0"
+          puts "hostname: #{hostname.inspect}"
+          puts "ready: #{ready.inspect}"
           if ready && windows_os?
             output = server.console_output.output
             unless output.nil?
